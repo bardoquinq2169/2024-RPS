@@ -142,12 +142,12 @@ while rounds_played < num_rounds:
     user_choice = string_checker("Choose: ", rps_list)
     print("you chose", user_choice)
 
-    comp_choice = random.choice(rps_list[:-1])
-    print("Computer choice", comp_choice)
-
     # If user choice is the exit code, break the loop
     if user_choice == "xxx":
         break
+
+    comp_choice = random.choice(rps_list[:-1])
+    print("Computer choice", comp_choice)
 
     result = rps_compare(user_choice, comp_choice)
 
