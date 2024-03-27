@@ -30,7 +30,6 @@ to_test = [
     ('XXX', 'xxx'),
     ('x', 'xxx'),
     ('random', 'invalid')
-
 ]
 
 # Run tests!
@@ -47,4 +46,3 @@ for item in to_test:
         print(f"✅✅✅Passed! Case: {case}, expected: {expected}, received: {actual}✅✅✅")
     else:
         print(f"❌❌❌Failed! Case: {case}, expected: {expected}, received: {actual}❌❌❌")
-

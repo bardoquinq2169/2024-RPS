@@ -1,50 +1,63 @@
-# checks users enter yes (y) or no (n)
-def yes_no(question):
+# Check that users have entered a valid
+# option based on a list
+def string_checker(question, valid_ans=("yes", "no")):
+    error = f"Please enter a valid option from the following list: {valid_ans}'"
+
     while True:
-        response = input(question).lower()
 
-        # check user response, question
-        # repeat if users don't enter yes/no
-        if response == "yes" or response == "y":
-            return "yes"
-        elif response == "no" or response == "n":
-            return "no"
-        else:
-            print("Please enter yes/no")
+        # Get user response and make sure it's lowercase
+        user_response = input(question).lower()
+
+        for item in valid_ans:
+            # check if the user response is a word in the list
+            if item == user_response:
+                return item
+
+            # check if the user response is the same as
+            # the first letter of an item in the list
+            elif user_response == item[0]:
+                return item
+
+        # print error if user does not enter something that is valid
+        print(error)
+        print()
 
 
+# Displays instructions
 def instructions():
     print('''
      
      
 **** Instructions ****
 
-To begin, decide on a score goal (eg: The first one to get a score of 50 wins).
+To begin, choose the number or rounds (or press <enter> for infinite mode).
 
-For each round of the game, you win points by rolling dice.
-The winner of the round is the one who gets 13 (or slightly less)
+Then play against the computer. You need to choose R (rock),
+P (paper) or S (scissors).
 
-If you win the round, then your score will increase by the 
-number of points that you earned. If your first roll of two 
-dice is a double (eg: both of the dice show a three), then your score
-will be DOUBLE the number of points.
+The rules are as follows:
+- Paper beats rock
+- Rock beats scissors
+- Scissors beat paper
 
-If you lose the round, then you don"t get any points.
+Press <xxx> to end the game at anytime.
 
-If you and the computer tie (eg: you both geta score of 11,
-then you will have 11 points added to your score.
+Good luck!!
 
     ''')
+
 
 # loop for testing purposes
 
 # Main routine
 
-
-print("🎲🎲 Roll it 13 🎲🎲")
+print()
+print("Rock / Paper / Scissors Game")
 print()
 
-want_instructions = yes_no("Do you want to read the instructions? ")
+# ask user if they want to see the instructions and display
+# them if requested
+want_instructions = string_checker("Do you want to read the instructions? ")
 
 # check is users enter yes (y) or no (n)
 if want_instructions == "yes":
